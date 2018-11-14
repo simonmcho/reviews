@@ -14,13 +14,15 @@ class ServiceController extends Controller
         return view('services.index', compact('services'));
     }
 
+    public function show(Service $service)
+    {   
+        dd($service);
+        return view('services.show', compact('service'));
+    }
+
     public function create()
     {
 
     }
 
-    public function show()
-    {
-
-    }
 }

@@ -29,7 +29,8 @@
     </div>
     <div class="service-prices">
         <p>
-            {{ $service->service_price }}
+            ${{ $service->service_price }} 
+            {{-- http://php.net/money_format --}}
         </p>
     </div>
 </div>
