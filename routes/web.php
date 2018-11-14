@@ -13,4 +13,8 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+
+Route::get('/register', 'RegistrationController@create'); // Page to register user
+Route::post('/register', 'RegistrationController@store'); // Register user
