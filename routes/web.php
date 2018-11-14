@@ -18,3 +18,5 @@ Route::get('/', function () {
 
 Route::get('/register', 'RegistrationController@create'); // Page to register user
 Route::post('/register', 'RegistrationController@store'); // Register user
+
+Route::get('/services', 'ServiceController@index'); // Page to show all products

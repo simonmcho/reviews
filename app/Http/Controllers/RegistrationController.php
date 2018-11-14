@@ -8,14 +8,20 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class RegistrationController extends Controller
-{
+{   
+    // Show View for user to be able to register user to the application
     public function create()
     {
         return view('sessions.create');
     }
 
+    /**
+     * Register user with server-side validation, then login the user and redirect user to home page
+     * @param {void}
+     * @return {Object} home view
+     */
     public function store()
-    {
+    {   
         $validationParams = [
             'username' => 'bail|required|unique:users|max:255',
             'firstName' => 'required',
@@ -37,7 +43,7 @@ class RegistrationController extends Controller
         ]);
 
         auth()->login($newUser);
-
+        
         return redirect()->home();
     }
 }

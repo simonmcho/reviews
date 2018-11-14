@@ -10,3 +10,12 @@
 - OOP concepts
 - Some sql queries
 - ORM concepts
+
+### Included Pages/Endpoints
+- Homepage
+- User registration
+- User login
+- Product
+- Schedule meeting
+- Payment
+- Notifications
