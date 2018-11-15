@@ -6,7 +6,7 @@
             <a href="/services/{{ $service_id->id }}" class="">{{ $service_id->title }}</a>
         </h1>
         <p>{{ $service_id->service_type }}</p>
-        <p>By: {{ $service_id->user->username }}</p>
+        <p>By: {{ $service_id->username }}</p>
         <hr>
 
         @if (count($service_id->reviews))
@@ -30,24 +30,35 @@
         @endif
         
         <br />
-        <div class="card">
-            <div class="card-block">
-            <form method="POST" action="/services/{{ $service_id->id }}/reviews">
-                    {{-- {{ method_field('PATCH') }} --}}
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="title">Review Title</label>
-                        <input class="form-control" name="title" placeholder="Review Title here" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="body" placeholder="Your review here" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Review!</button>
-                    </div>
-                </form>
+        @if (Auth::check())
+            <div class="card">
+                <div class="card-block">
+                <form method="POST" action="/services/{{ $service_id->id }}/reviews">
+                        {{-- {{ method_field('PATCH') }} --}}
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label for="title">Review Title</label>
+                            <input class="form-control" name="title" placeholder="Review Title here" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="body" placeholder="Your review here" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Add Review!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        @else
+        <div>
+            <p>Please sign in to leave a review</p>
+            <div>
+                <button class="btn btn-secondary">
+                    <a href="/login" class="p2 text-dark">Login</a>
+                </button>
             </div>
         </div>
+        @endif
 
         @include ('layouts.errors')
     </div>

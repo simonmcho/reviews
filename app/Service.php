@@ -14,7 +14,7 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'title', 'service_type', 'service_price'
+        'id', 'user_id', 'username', 'title', 'service_type', 'service_price'
     ];
 
     public function reviews()

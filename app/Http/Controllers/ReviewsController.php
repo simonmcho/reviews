@@ -16,7 +16,7 @@ class ReviewsController extends Controller
             'title' => 'required|min:1',
             'body' => 'required|min:1'
         ];
-
+        
         $this->validate(request(), $validationParams);
 
         $service_id->addReview(['title' => request('title'), 'body' => request('body')]);

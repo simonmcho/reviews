@@ -28,10 +28,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function posts()
+    public function services()
     {
         return $this->hasMany(Service::class);
     }
 
+    public function publish(Service $service)
+    {
+        dd($this->services());
+    }
     
 }

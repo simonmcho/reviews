@@ -33,12 +33,18 @@ class ServiceController extends Controller
         ];
 
         $this->validate(request(), $validationParams);
-
-        Service::create([
-            'title' => request('title'),
-            'service_type' => request('service_type'),
-            'service_price' => request('service_price')
-        ]);
+        
+        auth()->user()->publish(
+            new Service([request('title'), request('service_type'), request('service_price')])
+        );
+        
+        // Service::create([
+        //     'title' => request('title'),
+        //     'service_type' => request('service_type'),
+        //     'service_price' => request('service_price'),
+        //     'user_id' => auth()->id(),
+        //     'username' => auth()->user()->username
+        // ]);
 
         return redirect('/services');
     }

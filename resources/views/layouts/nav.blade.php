@@ -5,7 +5,7 @@
         <a class="p-2 text-dark" href="/register">Sign up</a>
         @if (Auth::check())
             <a href="/services/create" class="p-2 text-dark">Create Product</a>
-            <a class="p-2 text-dark" href="#" style="text-transform: uppercase">{{ Auth::user()->username }}</a>
+            <a class="p-2 text-dark" href="/user" style="text-transform: uppercase">{{ Auth::user()->username }}</a>
             <a class="p2 text-dark" href="/logout">Log out</a>
         @else
             <a class="p-2 text-dark" href="/login">Log in</a>
