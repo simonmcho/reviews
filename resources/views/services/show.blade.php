@@ -2,15 +2,17 @@
 
 @section ('content')
     <div class="col-sm-8 blog-main">
-        <h1>{{ $service->title }}</h1>
-        <p>{{ $service->service_type }}</p>
-        {{-- <p>{{ $service->user->name }}</p> --}}
+        <h1>
+            <a href="/services/{{ $service_id->id }}" class="">{{ $service_id->title }}</a>
+        </h1>
+        <p>{{ $service_id->service_type }}</p>
+        {{-- <p>{{ $service_id->user->name }}</p> --}}
         <hr>
 
-        {{-- @if (count($service->reviews))
+        {{-- @if (count($service_id->reviews))
             <div class="reviews">
                 <ul class="list-group">
-                    @foreach ($service->reviews as $review)
+                    @foreach ($service_id->reviews as $review)
                         <li class="list-group-item">
                             <strong>
                                 Review posted: {{ $review->created_at->diffFOrHUmans() }}
@@ -27,7 +29,7 @@
         <br />
         <div class="card">
             <div class="card-block">
-            <form method="POST" action="/posts/{{ $service->id }}/reviews">
+            <form method="POST" action="/posts/{{ $service_id->id }}/reviews">
                     {{-- {{ method_field('PATCH') }} --}}
                     {{ csrf_field() }}
                     <div class="form-group">

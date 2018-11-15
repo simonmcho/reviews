@@ -15,13 +15,13 @@ class Service extends Model
         'id', 'title', 'service_type', 'service_price'
     ];
 
-    public function reviews()
-    {
+    // public function reviews()
+    // {
 
-    }
+    // }
 
-    public function addReview($body)
-    {
+    // public function addReview($body)
+    // {
 
-    }
+    // }
 }

@@ -10,19 +10,23 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
-
+        
         return view('services.index', compact('services'));
     }
 
-    public function show(Service $service)
+    public function show(Service $service_id)
     {   
-        dd($service);
-        return view('services.show', compact('service'));
+        return view('services.show', compact('service_id'));
     }
 
     public function create()
-    {
+    {   
+        return view('services.create');
+    }
 
+    public function store()
+    {
+        dd($this);
     }
 
 }

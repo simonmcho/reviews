@@ -20,9 +20,7 @@ Route::get('/register', 'RegistrationController@create'); // Page to register us
 Route::post('/register', 'RegistrationController@store'); // Register user
 
 Route::get('/services', 'ServiceController@index'); // Page to show all products
-// Route::get('/services/{id}', function($theID) {
-//     dd($theID);
-// }); // Show individual products
+Route::get('/services/create', 'ServiceController@create'); // Page to create a product
+Route::get('/services/{service_id}', 'ServiceController@show'); // Show individual products
 
-Route::get('/services/{id}', 'ServiceController@show'); // Show individual products
-Route::post('/services/create', 'ServiceController@create'); // Create product
+Route::post('/services', 'ServiceController@store'); // Create product
