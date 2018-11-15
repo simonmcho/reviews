@@ -2,7 +2,9 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Auth;
 use App\Model;
+
 
 class Service extends Model
 {
@@ -15,13 +17,23 @@ class Service extends Model
         'id', 'title', 'service_type', 'service_price'
     ];
 
-    // public function reviews()
-    // {
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 
-    // }
+    public function addReview($content)
+    {
 
-    // public function addReview($body)
-    // {
+        $user_id = Auth::user()->id;
+        $title = $content['title'];
+        $body = $content['body'];
+        $this->reviews()->create(compact('user_id', 'title', 'body'));
 
-    // }
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id');
+    }
 }

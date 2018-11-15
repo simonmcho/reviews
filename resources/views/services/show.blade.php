@@ -6,10 +6,10 @@
             <a href="/services/{{ $service_id->id }}" class="">{{ $service_id->title }}</a>
         </h1>
         <p>{{ $service_id->service_type }}</p>
-        {{-- <p>{{ $service_id->user->name }}</p> --}}
+        <p>By: {{ $service_id->user->username }}</p>
         <hr>
 
-        {{-- @if (count($service_id->reviews))
+        @if (count($service_id->reviews))
             <div class="reviews">
                 <ul class="list-group">
                     @foreach ($service_id->reviews as $review)
@@ -20,18 +20,25 @@
                             <article>
                                 {{ $review->body }}
                             </article>
+                            <p>
+                                Review by: {{ $review->user->username }}
+                            </p>
                         </li>
                     @endforeach
                 </ul>
             </div>
-        @endif --}}
+        @endif
         
         <br />
         <div class="card">
             <div class="card-block">
-            <form method="POST" action="/posts/{{ $service_id->id }}/reviews">
+            <form method="POST" action="/services/{{ $service_id->id }}/reviews">
                     {{-- {{ method_field('PATCH') }} --}}
                     {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="title">Review Title</label>
+                        <input class="form-control" name="title" placeholder="Review Title here" required>
+                    </div>
                     <div class="form-group">
                         <textarea class="form-control" name="body" placeholder="Your review here" required></textarea>
                     </div>

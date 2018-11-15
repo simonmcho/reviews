@@ -24,3 +24,4 @@ Route::get('/services/create', 'ServiceController@create'); // Page to create a 
 Route::get('/services/{service_id}', 'ServiceController@show'); // Show individual products
 
 Route::post('/services', 'ServiceController@store'); // Create product
+Route::post('/services/{service_id}/reviews', 'ReviewsController@store'); // Create review on product
