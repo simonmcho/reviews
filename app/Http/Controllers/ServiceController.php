@@ -7,6 +7,11 @@ use App\Service;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index()
     {
         $services = Service::all();
@@ -33,9 +38,9 @@ class ServiceController extends Controller
         ];
 
         $this->validate(request(), $validationParams);
-        
+
         auth()->user()->publish(
-            new Service([request('title'), request('service_type'), request('service_price')])
+            new Service(request(['title', 'service_type', 'service_price']))
         );
         
         // Service::create([

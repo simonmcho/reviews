@@ -19,3 +19,9 @@
 - Schedule meeting
 - Payment
 - Notifications
+
+### Relationships
+- User has one or more services
+- Service belongs to user
+- Service has one or more reviews
+- Review belongs to service

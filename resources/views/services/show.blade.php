@@ -6,7 +6,7 @@
             <a href="/services/{{ $service_id->id }}" class="">{{ $service_id->title }}</a>
         </h1>
         <p>{{ $service_id->service_type }}</p>
-        <p>By: {{ $service_id->username }}</p>
+        <p>By: {{ $service_id->user->username }}</p>
         <hr>
 
         @if (count($service_id->reviews))

@@ -14,7 +14,7 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'user_id', 'username', 'title', 'service_type', 'service_price'
+        'title', 'service_type', 'service_price'
     ];
 
     public function reviews()
@@ -22,18 +22,19 @@ class Service extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function addReview($content)
     {
 
-        $user_id = Auth::user()->id;
+        $user_id = Auth::user()->id; // We want to add the logged in user's info, not the user who owns the service
         $title = $content['title'];
         $body = $content['body'];
         $this->reviews()->create(compact('user_id', 'title', 'body'));
 
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id');
-    }
 }

@@ -35,7 +35,7 @@ class User extends Authenticatable
 
     public function publish(Service $service)
     {
-        dd($this->services());
+        $this->services()->save($service);
     }
     
 }

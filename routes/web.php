@@ -25,3 +25,7 @@ Route::get('/services/{service_id}', 'ServiceController@show'); // Show individu
 
 Route::post('/services', 'ServiceController@store'); // Create product
 Route::post('/services/{service_id}/reviews', 'ReviewsController@store'); // Create review on product
+
+Route::get('/login', function () {
+    dd('hi');
+})->name('login');
