@@ -26,7 +26,21 @@ class ServiceController extends Controller
 
     public function store()
     {
-        dd($this);
+        $validationParams = [
+            'title' => 'required|max:255',
+            'service_type' => 'required',
+            'service_price' => 'required|min:1|integer'
+        ];
+
+        $this->validate(request(), $validationParams);
+
+        Service::create([
+            'title' => request('title'),
+            'service_type' => request('service_type'),
+            'service_price' => request('service_price')
+        ]);
+
+        return redirect('/services');
     }
 
 }

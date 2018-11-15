@@ -13,17 +13,19 @@
             <input type="text" name ="title" class="form-control" id="title" placeholder="title">
         </div>
         <div class="form-group">
-            <label for="emailAddress">Product Industry</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="email@gmail.com" required>
-            <select>
-                <option> 
-                </option>
-            </select>
+            <label for="service_type">Product Type:</label>
+            <div>
+                <select name="service_type" id="service_type" required>
+                    <option value="wood">Wood</option>
+                    <option value="metal">Metal</option>
+                    <option value="plastic">Plastic</option>
+                    <option value="fabric">Fabric</option>
+                </select>
+            </div>
         </div>
-
         <div class="form-group">
             <label for="service_price">Service Price</label>
-            <input type="number" name="service_price" class="form-control" id="service_price" placeholder="$0.00" required>
+            <input type="number" name="service_price" class="form-control" id="service_price" placeholder="$0.00" min="1" step="1" required>
         </div>
         {{-- <div class="form-group">
             <label for="exampleInputFile">File input</label>
@@ -35,7 +37,7 @@
             <input type="checkbox"> Check me out
             </label>
         </div> --}}
-        <select>
+        <select required>
             <option value="buyer">Buyer</option>
             <option value="seller">Seller</option>
         </select>
