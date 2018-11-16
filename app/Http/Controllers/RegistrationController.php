@@ -12,7 +12,7 @@ class RegistrationController extends Controller
     // Show View for user to be able to register user to the application
     public function create()
     {
-        return view('sessions.create');
+        return view('registration.create');
     }
 
     /**

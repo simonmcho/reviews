@@ -25,3 +25,10 @@
 - Service belongs to user
 - Service has one or more reviews
 - Review belongs to service
+
+### WIP
+- `SessionsController.php`
+- Login/Logout functionality and view
+
+#### Important/Further readings:
+- [Facades](https://laravel.com/docs/5.7/facades)
