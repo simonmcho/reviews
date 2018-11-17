@@ -32,3 +32,10 @@
 
 #### Important/Further readings:
 - [Facades](https://laravel.com/docs/5.7/facades)
+
+### Room for improvement:
+- Avoid helper functions. Look at reasons to use facade interfaces and its "static" methods as opposed to helper functions
+- Separate the area of concerns in controller(?)
+- Comment on functions in Models and Controllers
+- Create cleaner views
+- Create a consistent styling theme
