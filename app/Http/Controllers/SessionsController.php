@@ -9,7 +9,7 @@ class SessionsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest'); // Only guests will see non-authenticated endpoints???
+        $this->middleware('guest', ['except' => 'destroy']); // Only guests will see non-authenticated endpoints???
     }
     // Show page for user to login
     public function create(): object
@@ -22,7 +22,10 @@ class SessionsController extends Controller
     {
         // Attempt to authenticate user
         if (!Auth::attempt(request(['username', 'password']))) {
-            return back(); // Not authenticated, redirect back
+            return back()->withErrors([
+                'message' => 'Your credentials did not match, please try again!'
+            ]);
+            // Not authenticated, redirect back
         } else {
             return redirect()->home(); // Authenticated, redirect to home
         }

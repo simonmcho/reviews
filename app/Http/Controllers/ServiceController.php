@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Service;
 
 class ServiceController extends Controller
@@ -14,9 +15,19 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $services = Service::all();
+
+        // $services = Service::all();
+        $services = Service::latest()->filter(request(['month', 'year']))->get();
+
+        // Temporary
+        $archives = 
+            Service::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+            ->groupBy('year', 'month')
+            ->orderByRaw('min(created_at) desc')
+            ->get(); // ->toArray(); // Older php?
         
-        return view('services.index', compact('services'));
+        // return $archives;
+        return view('services.index', compact('services', 'archives'));
     }
 
     public function show(Service $service_id)

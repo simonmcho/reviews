@@ -29,6 +29,7 @@
 ### WIP
 - `SessionsController.php`
 - Login/Logout functionality and view
+- Archives for sessions. Using query scope to pass filter functionality to model [Video for ref](https://laracasts.com/series/laravel-from-scratch-2017/episodes/20)
 
 #### Important/Further readings:
 - [Facades](https://laravel.com/docs/5.7/facades)
@@ -39,3 +40,5 @@
 - Comment on functions in Models and Controllers
 - Create cleaner views
 - Create a consistent styling theme
+
+

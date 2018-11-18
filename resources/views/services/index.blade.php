@@ -2,8 +2,15 @@
 
 @section ('content')
     <div class="col-sm-8">
-        @foreach ($services as $service)
-            @include ('services.service')
-        @endforeach
+        @if (count($services)) 
+            @foreach ($services as $service)
+                @include ('services.service')
+            @endforeach
+        @else
+            <div>
+                No services!
+            </div>
+        @endif
     </div>
+    @include ('layouts.sidebar')
 @endsection

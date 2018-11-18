@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 use App\Model;
 
 
@@ -35,6 +37,18 @@ class Service extends Model
         $body = $content['body'];
         $this->reviews()->create(compact('user_id', 'title', 'body'));
 
+    }
+
+    // Function scopeFilter is due to the query scope, where you add `scope` in the beginning of the name of your function
+    public function scopeFilter($query, $filters)
+    {
+        if (isset($filters['month'])) {
+            $query->whereMonth('created_at', Carbon::parse($filters['month'])->month);
+        }
+
+        if (isset($filters['year'])) {
+            $query->whereYear('created_at', $filters['year']);
+        }
     }
 
 }

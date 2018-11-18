@@ -15,7 +15,11 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
-            <button class="btn btn-primary">Sign in!</button>
+            <div class="form-group">
+                <button class="btn btn-primary">Sign in!</button>
+            </div>
+
+            @include ('layouts.errors')
         </form>
     </div>
 @endsection
