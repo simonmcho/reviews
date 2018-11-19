@@ -8,7 +8,10 @@
             @endforeach
         @else
             <div>
-                No services!
+                <h4>
+                    No services!
+                </h4>
+                <a href="/services">Click here to go back to all services</a>
             </div>
         @endif
     </div>
