@@ -1,6 +1,7 @@
 @extends ('layouts.master')
 
 @section ('content')
+
     <div class="col-sm-8 blog-main">
         <h1>
             <a href="/services/{{ $service_id->id }}" class="">{{ $service_id->title }}</a>
@@ -63,8 +64,11 @@
         @include ('layouts.errors')
     </div>
 
+    @include ('layouts.sidebar')
+    
     <div class="col-sm-8 blog-pagination">
         <a href="#" class="btn btn-outline-primary">Older</a>
         <a href="#" class="btn btn-outline-secondary disabled">Newer</a>
     </div>
+
 @endsection

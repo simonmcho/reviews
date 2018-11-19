@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 use App\User;
 
@@ -42,7 +43,8 @@ class RegistrationController extends Controller
             'password_confirmation' => Hash::make(request('password_confirmation'))
         ]);
 
-        auth()->login($newUser);
+        // auth()->login($newUser);
+        Auth::login($newUser);
         
         return redirect()->home();
     }

@@ -17,17 +17,14 @@ class ServiceController extends Controller
     {
 
         // $services = Service::all();
+        // Query the params on URL and show only the requested month and year
         $services = Service::latest()->filter(request(['month', 'year']))->get();
 
-        // Temporary
-        $archives = 
-            Service::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-            ->groupBy('year', 'month')
-            ->orderByRaw('min(created_at) desc')
-            ->get(); // ->toArray(); // Older php?
+        // Get archives - archives should be available, so using service providers
+        // $archives = Service::archives();
         
         // return $archives;
-        return view('services.index', compact('services', 'archives'));
+        return view('services.index', compact('services'));
     }
 
     public function show(Service $service_id)

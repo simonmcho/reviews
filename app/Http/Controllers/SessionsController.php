@@ -18,7 +18,7 @@ class SessionsController extends Controller
     }
 
     // Login user
-    public function store()
+    public function store(): object
     {
         // Attempt to authenticate user
         if (!Auth::attempt(request(['username', 'password']))) {
