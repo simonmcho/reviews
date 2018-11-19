@@ -20,7 +20,7 @@ class ServiceController extends Controller
         // Query the params on URL and show only the requested month and year
         $services = Service::latest()->filter(request(['month', 'year']))->get();
 
-        // Get archives - archives should be available, so using service providers
+        // Get archives - archives should be available everywhere, so using service providers
         // $archives = Service::archives();
         
         // return $archives;
