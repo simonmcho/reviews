@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // We can hook into when any view is loaded
         view()->composer('layouts.sidebar', function ($view) {
-            $view->with('archives', \App\Service::archives());
+            $view->with('archivesss', \App\Service::archives());
         });
 
     }

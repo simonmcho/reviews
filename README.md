@@ -31,6 +31,17 @@
 - Login/Logout functionality and view
 - Archives for sessions. Using query scope to pass filter functionality to model [Video for ref](https://laracasts.com/series/laravel-from-scratch-2017/episodes/20)
 - View composers for hooking into view rendering [Video for ref](https://laracasts.com/series/laravel-from-scratch-2017/episodes/21)
+    - Where does the variable `archives` come from when referencing in the service provider?:
+    ```
+        public function boot()
+    {
+        // We can hook into when any view is loaded
+        view()->composer('layouts.sidebar', function ($view) {
+            $view->with('archives', \App\Service::archives());
+        });
+
+    }
+    ```
 
 #### Important/Further readings:
 - [Facades](https://laravel.com/docs/5.7/facades)
